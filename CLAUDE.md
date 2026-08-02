@@ -1,31 +1,31 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+ไฟล์นี้ให้คำแนะนำแก่ Claude Code (claude.ai/code) เมื่อทำงานกับโค้ดในโปรเจกต์นี้
 
-## Repository state
+## สถานะของโปรเจกต์
 
-This repository currently contains **only a documentation scaffold** under `docs/` — there is no application source code, package manifest, build tooling, linter, or test suite yet. Do not assume a tech stack, framework, or commands like `npm install`/`npm test` exist; verify with `Glob`/`Bash` before suggesting or running any build/lint/test command. When source code is eventually added, this file should be updated with the real commands and architecture.
+โปรเจกต์นี้ในปัจจุบัน **มีเพียงโครงเอกสาร (documentation scaffold)** อยู่ใต้ `docs/` เท่านั้น — ยังไม่มีซอร์สโค้ดของแอปพลิเคชัน, package manifest, เครื่องมือ build, linter หรือชุดทดสอบใด ๆ อย่าสันนิษฐานว่ามี tech stack, framework หรือคำสั่งอย่าง `npm install`/`npm test` อยู่ ให้ตรวจสอบด้วย `Glob`/`Bash` ก่อนแนะนำหรือรันคำสั่ง build/lint/test ใด ๆ เมื่อมีการเพิ่มซอร์สโค้ดในอนาคต ควรอัปเดตไฟล์นี้ให้มีคำสั่งและสถาปัตยกรรมที่ตรงกับความจริง
 
-## Documentation structure
+## โครงสร้างเอกสาร
 
-Docs live in `docs/` as an Obsidian-style knowledge base, written primarily in Thai. Each folder has an `index.md` that explains its purpose and cross-links to related folders using wiki-links (`[[../path/index|label]]`). The folders encode the project's intended workflow as a numbered pipeline — each stage's output feeds the next:
+เอกสารอยู่ใน `docs/` ในรูปแบบฐานความรู้สไตล์ Obsidian เขียนเป็นภาษาไทยเป็นหลัก แต่ละโฟลเดอร์มีไฟล์ `index.md` อธิบายจุดประสงค์และลิงก์ไปยังโฟลเดอร์ที่เกี่ยวข้องด้วย wiki-link (`[[../path/index|label]]`) โฟลเดอร์เหล่านี้สะท้อนขั้นตอนการทำงานของโปรเจกต์เป็นลำดับขั้น (pipeline) ที่มีหมายเลขกำกับ — ผลลัพธ์ของแต่ละขั้นจะถูกส่งต่อไปยังขั้นถัดไป:
 
 ```
-01-requirements/01-spec   → what the system must do (source of truth)
-01-requirements/02-plan   → roadmap/timeline derived from spec
-01-requirements/03-task   → concrete task breakdown derived from plan
-02-design/01-prototypes   → UI/UX mockups, referencing 01-spec
-02-design/02-technical    → architecture, DB schema, API design — the blueprint for implementation
-03-testing/01-test-plan   → test cases derived from 01-spec and 02-design
-03-testing/02-test-result → actual pass/fail results and bugs found
-04-retrospectives         → lessons learned per phase/sprint, informed by 02-test-result and 05-log
-05-log                    → chronological changelog and decision log
-00-archived               → superseded/cancelled docs — never delete docs, move them here instead
+01-requirements/01-spec   → ระบบต้องทำอะไรบ้าง (ต้นทางของความต้องการ)
+01-requirements/02-plan   → roadmap/timeline ที่แตกมาจาก spec
+01-requirements/03-task   → งานย่อยที่แตกมาจากแผนงาน
+02-design/01-prototypes   → mockup ของ UI/UX อ้างอิงจาก 01-spec
+02-design/02-technical    → architecture, DB schema, API design — พิมพ์เขียวสำหรับการพัฒนา
+03-testing/01-test-plan   → test case ที่แตกมาจาก 01-spec และ 02-design
+03-testing/02-test-result → ผล pass/fail จริงและบั๊กที่พบ
+04-retrospectives         → บทเรียนที่ได้ในแต่ละ phase/sprint อ้างอิงจาก 02-test-result และ 05-log
+05-log                    → changelog และบันทึกการตัดสินใจตามลำดับเวลา
+00-archived               → เอกสารที่เลิกใช้แล้ว/ถูกยกเลิก — ห้ามลบเอกสาร ให้ย้ายมาไว้ที่นี่แทน
 ```
 
-When adding or editing documentation, place it in the folder matching its stage in this pipeline, follow the existing `index.md` wiki-link convention when cross-referencing other sections, and write in Thai to match the existing content unless told otherwise.
+เมื่อจะเพิ่มหรือแก้ไขเอกสาร ให้วางไว้ในโฟลเดอร์ที่ตรงกับขั้นตอนใน pipeline นี้ ให้ปฏิบัติตามธรรมเนียม wiki-link ของ `index.md` ที่มีอยู่แล้วเมื่ออ้างอิงข้ามไปยังส่วนอื่น และเขียนเป็นภาษาไทยให้สอดคล้องกับเนื้อหาที่มีอยู่ เว้นแต่จะได้รับแจ้งเป็นอย่างอื่น
 
-## Git conventions
+## ธรรมเนียมการใช้ Git
 
-- Remote `origin` is `https://github.com/Plabuchill/Demo-project.git`.
-- `.claude/settings.local.json` currently allow-lists `git commit`/`git push` — treat these as still requiring the same confirmation discipline as any other push/publish action described in your operating instructions, not as blanket pre-authorization.
+- Remote `origin` คือ `https://github.com/Plabuchill/Demo-project.git`
+- `.claude/settings.local.json` ปัจจุบัน allow-list คำสั่ง `git commit`/`git push` ไว้แล้ว — ให้ถือว่ายังคงต้องขอคำยืนยันตามหลักเดียวกับการ push/publish อื่น ๆ ที่ระบุไว้ในคำแนะนำการทำงานของคุณ ไม่ใช่การอนุญาตล่วงหน้าแบบครอบคลุมทุกกรณี
