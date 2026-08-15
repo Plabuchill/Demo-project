@@ -1,6 +1,6 @@
 ---
 name: create-user-journey
-description: สร้างหรืออัปเดตเอกสาร user journey (พร้อม Mermaid flowchart และคำอธิบายใต้กราฟ) ใน docs/02-design/01-prototypes/ จากเอกสาร spec ที่มีอยู่ใน docs/01-requirements/01-spec/ ใช้เมื่อผู้ใช้ต้องการ map user flow ของ actor ใด ๆ จาก spec ที่มีอยู่ หรือพิมพ์ /create-user-journey
+description: สร้างหรืออัปเดตเอกสาร user journey (พร้อม Mermaid flowchart, คำอธิบายใต้กราฟตามลำดับ, และ mapping กลับไปหา requirement แต่ละข้อ) ใน docs/02-design/01-prototypes/ จากเอกสาร spec ที่มีอยู่ใน docs/01-requirements/01-spec/ ใช้เมื่อผู้ใช้ต้องการ map user flow ของ actor ใด ๆ จาก spec ที่มีอยู่ หรือพิมพ์ /create-user-journey
 argument-hint: [spec หรือ actor ที่ต้องการสร้าง/อัปเดต user journey]
 ---
 
@@ -13,7 +13,7 @@ argument-hint: [spec หรือ actor ที่ต้องการสร้�
 3. **มอบหมายให้ agent `docs-maintainer`** ผ่าน Agent tool โดย **ต้องรันแบบ foreground** (`run_in_background: false`) prompt ที่ส่งต้องครบถ้วนในตัวเอง (agent ใหม่ไม่เห็นบทสนทนานี้) ประกอบด้วย:
    - **ให้รันโหมด B (สร้าง/อัปเดต user journey)** เท่านั้น ไม่ใช่โหมด A
    - สิ่งที่ผู้ใช้ระบุมาแบบเต็ม (คำต่อคำ) + รายชื่อไฟล์ spec ที่พบในขั้นตอนที่ 2
-   - ย้ำหน้าที่ทั้งหมดตามขั้นตอน B1-B8 ใน `.claude/agents/docs-maintainer.md`: ตรวจสอบ journey เดิมก่อนว่ามีอยู่แล้วหรือไม่ (แก้ไข vs สร้างใหม่), สกัด actor+ขั้นตอนจาก spec, ตั้งชื่อไฟล์ตามรูปแบบ `{YYYYMMDD}-{RUNNING_NO}-user-journey-{actor}-{topic}.md`, เขียนเอกสารที่ต้องมี Mermaid flowchart พร้อมคำอธิบายใต้กราฟเสมอ (ไม่ใช่ทางเลือก), อัปเดตตารางใน `docs/02-design/01-prototypes/index.md`, บันทึก log
+   - ย้ำหน้าที่ทั้งหมดตามขั้นตอน B1-B8 ใน `.claude/agents/docs-maintainer.md`: ตรวจสอบ journey เดิมก่อนว่ามีอยู่แล้วหรือไม่ (แก้ไข vs สร้างใหม่), สกัด actor+ขั้นตอนจาก spec พร้อมจดเลขข้อ "รายละเอียด Requirement" ที่แต่ละขั้นตอนอ้างอิง, ตั้งชื่อไฟล์ตามรูปแบบ `{YYYYMMDD}-{RUNNING_NO}-user-journey-{actor}-{topic}.md`, เขียนเอกสารที่ต้องมี Mermaid flowchart พร้อมคำอธิบายใต้กราฟที่ระบุเลขข้อ requirement กำกับทุกขั้นตอนเสมอ (ไม่ใช่ทางเลือก), อัปเดตตารางใน `docs/02-design/01-prototypes/index.md`, บันทึก log; ถ้าเจอจุดที่ไม่มั่นใจให้ถามผู้ใช้ตามกฎในหัวข้อ "เมื่อไม่มั่นใจ: ต้องถามผู้ใช้เสมอ" ของ agent (≥3 แนวทาง พร้อมเหตุผล/ข้อดี/ข้อเสีย และคำแนะนำ)
 
 4. **สรุปให้ผู้ใช้** — เมื่อ agent ทำงานเสร็จ สรุปสั้น ๆ ว่าสร้าง/แก้ไขไฟล์อะไรบ้าง (ลิงก์ไฟล์ทั้งหมด)
 
