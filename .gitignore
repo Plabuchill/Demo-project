@@ -3,3 +3,9 @@
 # Obsidian vault state (machine-specific, not shared config)
 .obsidian/workspace*
 .obsidian/cache
+
+# Stray/test Obsidian vaults created outside the project docs (not part of this project)
+/coffee/
+/Dose/
+/docs/coffee/
+/starter-kit-v1/
