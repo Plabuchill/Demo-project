@@ -7,3 +7,11 @@
 - Design system เบื้องต้น เช่น สี ฟอนต์ คอมโพเนนต์หลัก
 
 ใช้สำหรับสื่อสารและตกลงหน้าตาของระบบก่อนลงมือพัฒนาจริง โดยอ้างอิงความต้องการจาก [[../../01-requirements/01-spec/index|01-spec]] และส่งต่อรายละเอียดเชิงระบบให้ [[../02-technical/index|02-technical]]
+
+## รายการ User Journey
+
+รายการเอกสาร user journey ทั้งหมด เรียงจากล่าสุดไปเก่าสุด อ้างอิง spec ต้นทางใน [[../../01-requirements/01-spec/index|01-spec]] ไฟล์นี้ถูกอัปเดตอัตโนมัติโดย agent `docs-maintainer` (ดู `.claude/agents/docs-maintainer.md`) ทุกครั้งที่มีการสร้าง/แก้ไข user journey
+
+| วันที่ | Actor | หัวข้อ | เอกสาร | อ้างอิงจาก spec |
+|---|---|---|---|---|
+
