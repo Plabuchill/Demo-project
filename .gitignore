@@ -1,1 +1,5 @@
 .claude/settings.local.json
+
+# Obsidian vault state (machine-specific, not shared config)
+.obsidian/workspace*
+.obsidian/cache
